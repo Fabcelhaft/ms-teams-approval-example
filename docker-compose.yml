@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  ms-teams-approval:
+    image: ghcr.io/fabcelhaft/ms-teams-approval-example:main
+    restart: unless-stopped
+    labels:
+      - server.user=${TRAEFIK_IDENT}
+      - traefik.enable=true
+      - "traefik.http.routers.ms-teams-approval.rule=Host(`ms-teams-approval.${DOMAIN}`)"
+      - traefik.http.routers.ms-teams-approval.entrypoints=websecure
+    networks:
+      - reverse-proxy
+
+
+networks:
+  reverse-proxy:
+    external: true
+    name: ${LOADBALANCER_NAME}
