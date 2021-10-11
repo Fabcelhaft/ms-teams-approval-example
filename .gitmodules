@@ -1,0 +1,3 @@
+[submodule "modules/ui"]
+	path = modules/ui
+	url = git@github.com:Fabcelhaft/ms-teams-approval-example-ui.git
