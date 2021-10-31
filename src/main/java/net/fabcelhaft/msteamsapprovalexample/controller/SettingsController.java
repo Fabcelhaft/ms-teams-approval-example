@@ -10,7 +10,7 @@ public class SettingsController {
     //Bad practice
     public static String baseUrl="https://ms-teams-approval.fabcelhaft.net";
     //Bad practice
-    public static String cloudUrl="https://ms-teams-approval.fabcelhaft.net/hook";
+    public static String cloudUrl="https://ms-teams-approval.fabcelhaft.net/cloudmock";
 
     @PutMapping("/url/base")
     public void setBaseUrl(String baseUrl) {
