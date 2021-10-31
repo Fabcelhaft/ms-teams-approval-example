@@ -1,5 +1,17 @@
+FROM node:14 as webbuild
+
+COPY modules/ui/ /ui/
+
+WORKDIR /ui/
+
+RUN npm install
+RUN npm run build
+
+
 FROM openjdk:11 as build
 WORKDIR /workspace/app
+
+COPY --from=webbuild /ui/dist/ms-teams-approval-ui/ src/main/resources/public/
 
 COPY mvnw .
 COPY .mvn .mvn
